@@ -131,5 +131,11 @@ def new_notification(request):
     return render(request,'notification_form.html',{"form":form})
 
 @login_required(login_url='/accounts/login/')
-def search_results(request):
-    return
+def search(request):
+    if 'business' in request.GET and request.GET['business']:
+        search_term = request.GET.get('business')
+        businesses = Business.objects.filter(title__icontains = search_term)
+        message = f'{search_term}'
+        return render(request, 'search.html', {'businesses': businesses, 'message': message})
+        
+    return render(request, 'search.html')
