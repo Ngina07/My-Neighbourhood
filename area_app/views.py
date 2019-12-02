@@ -60,7 +60,7 @@ def update_profile(request):
 def authorities(request):
     current_user=request.user
     profile=Profile.objects.get(username=current_user)
-    authorities = Authorities.objects.filter(Hood=profile.hood)
+    authorities = Authorities.objects.filter(hood=profile.hood)
 
     return render(request,'authorities.html',{"authorities":authorities})
 
@@ -68,7 +68,7 @@ def authorities(request):
 def businesses(request):
     current_user=request.user
     profile=Profile.objects.get(username=current_user)
-    businesses = Business.objects.filter(Hood =profile.hood)
+    businesses = Business.objects.filter(hood =profile.hood)
 
     return render(request,'businesses.html',{"businesses":businesses})
 
@@ -76,7 +76,7 @@ def businesses(request):
 def health(request):
     current_user=request.user
     profile=Profile.objects.get(username=current_user)
-    healthservices = Health.objects.filter(Hood=profile.hood)
+    healthservices = Health.objects.filter(hood=profile.hood)
 
     return render(request,'health.html',{"healthservices":healthservices})
 
@@ -87,3 +87,27 @@ def notification(request):
     all_notifications = notifications.objects.filter(Hood=profile.hood)
 
     return render(request,'notifications.html',{"notifications":all_notifications})
+
+@login_required(login_url='/accounts/login/')
+def new_business(request):
+    current_user=request.user
+    profile =Profile.objects.get(username=current_user)
+
+    if request.method=="POST":
+        form =BusinessForm(request.POST,request.FILES)
+        if form.is_valid():
+            business = form.save(commit = False)
+            business.owner = current_user
+            business.hood = profile.hood
+            business.save()
+
+        return HttpResponseRedirect('/businesses')
+
+    else:
+        form = BusinessForm()
+
+    return render(request,'business_form.html',{"form":form})
+
+@login_required(login_url='/accounts/login/')
+def search_results(request):
+    return
