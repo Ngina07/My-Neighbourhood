@@ -128,7 +128,7 @@ def new_notification(request):
     else:
         form = notificationsForm()
 
-    return render(request,'notifications_form.html',{"form":form})
+    return render(request,'notification_form.html',{"form":form})
 
 @login_required(login_url='/accounts/login/')
 def search_results(request):
