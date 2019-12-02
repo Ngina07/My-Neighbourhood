@@ -84,7 +84,7 @@ def health(request):
 def notification(request):
     current_user=request.user
     profile=Profile.objects.get(username=current_user)
-    all_notifications = notifications.objects.filter(Hood=profile.hood)
+    all_notifications = notifications.objects.filter(hood=profile.hood)
 
     return render(request,'notifications.html',{"notifications":all_notifications})
 
