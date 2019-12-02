@@ -6,10 +6,6 @@ from django.db.models import Q
 import datetime as dt
 
 
-# Priority=(
-#     ('Informational','Informational'),
-#     ('High Priority','High Priority'),
-# )
 
 class Hood(models.Model):
     hood = models.CharField (max_length= 100, default= 'Nairobi')
@@ -33,7 +29,6 @@ class Profile(models.Model):
 class notifications(models.Model):
     title = models.CharField(max_length=100)
     notification = HTMLField()
-    # priority = models.CharField(max_length=15,choices=Priority,default="Informational")
     author = models.ForeignKey(User,on_delete=models.CASCADE)
     hood = models.ForeignKey(Hood,on_delete=models.CASCADE)
     post_date = models.DateTimeField(auto_now_add=True)
@@ -60,6 +55,18 @@ class Authorities(models.Model):
     email = models.EmailField()
     contact = models.CharField(max_length=100)
     address =models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+class Health(models.Model):
+    logo = models.ImageField(upload_to='healthlogo/')
+    hood = models.ForeignKey(Hood,on_delete=models.CASCADE)
+    name =models.CharField(max_length=100)
+    email = models.EmailField()
+    contact = models.CharField(max_length=100)
+    address =models.CharField(max_length=100)
+    
 
     def __str__(self):
         return self.name
