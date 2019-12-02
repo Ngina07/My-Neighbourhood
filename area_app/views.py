@@ -134,7 +134,7 @@ def new_notification(request):
 def search(request):
     if 'business' in request.GET and request.GET['business']:
         search_term = request.GET.get('business')
-        businesses = Business.objects.filter(title__icontains = search_term)
+        businesses = Business.objects.filter(name__icontains = search_term)
         message = f'{search_term}'
         return render(request, 'search.html', {'businesses': businesses, 'message': message})
         
