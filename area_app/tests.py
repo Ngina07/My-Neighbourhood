@@ -25,21 +25,21 @@ class hoodTestClass(TestCase):
         Hood.objects.all().delete()
 class healthTestClass(TestCase):
     def setUp(self):
-        self.Radiotherapy = Health(healthservices='Radiotherapy')
+        self.Hospital = Health(healthservices='Hospital')
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.Radiotherapy,healthservices))
+        self.assertTrue(isinstance(self.Hospital,healthservices))
 
     
     def test_save_method(self):
-        self.Radiotherapy.save_healthservices()
+        self.Hospital.save_healthservices()
         health = healthservices.objects.all()
         self.assertTrue(len(health)>0)
 
     def test_delete_method(self):
-        self.Radiotherapy.delete_healthservices('Radiotherapy')
+        self.Hospital.delete_healthservices('Hospital')
         health = healthservices.objects.all()
         self.assertTrue(len(health)==0)
-        
+
     def tearDown(self):
         Health.objects.all().delete()
