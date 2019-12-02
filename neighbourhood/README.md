@@ -1,9 +1,10 @@
-## Instagram
-### Instagram is a clone of the actual instagram app.
+## My-Neighbourhood
+### My-neighbourhood is an app that allows users to enter their neighbourhood and see health services, authorities and neighbourhood notifications
+
 #### By : Phillis Ngina Njoroge
 
 ### Description
-The web-app displays images uploaded by the app admin. Users are able the view the images,search images by catgory and copy photo links.Access live link [here]https://clonestagram101.herokuapp.com/)
+My-neighbourhood is an app that allows users to enter their neighbourhood and see health services, authorities and neighbourhood notifications.Access live link [here]https://clonestagram101.herokuapp.com/)
 
 ## BDD
 
