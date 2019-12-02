@@ -7,6 +7,8 @@ urlpatterns=[
     url(r'^$',views.index,name='Index'),
     url(r'^authorities',views.authorities, name='authorities'),
     url(r'^businesses',views.businesses, name='businesses'),
+    url(r'^health-services',views.health, name='health'),
+    url(r'^notifications',views.notification, name='notifications'),
     url(r'^create/profile$',views.create_profile, name='create-profile'),
     url(r'^update/profile$',views.update_profile, name='update-profile'),
 ]

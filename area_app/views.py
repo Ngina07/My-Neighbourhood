@@ -79,3 +79,11 @@ def health(request):
     healthservices = Health.objects.filter(Hood=profile.hood)
 
     return render(request,'health.html',{"healthservices":healthservices})
+
+@login_required(login_url='/accounts/login/')
+def notification(request):
+    current_user=request.user
+    profile=Profile.objects.get(username=current_user)
+    all_notifications = notifications.objects.filter(Hood=profile.hood)
+
+    return render(request,'notifications.html',{"notifications":all_notifications})
