@@ -5,18 +5,19 @@ from tinymce.models import HTMLField
 from django.db.models import Q
 import datetime as dt
 
+
+# Priority=(
+#     ('Informational','Informational'),
+#     ('High Priority','High Priority'),
+# )
+
 class Hood(models.Model):
-    hood = models.CharField(max_length=100)
+    hood = models.CharField (max_length= 100, default= 'Nairobi')
 
     def __str__(self):
         return self.hood
 
-    def save_hood(self):
-        self.save()
-
-    @classmethod
-    def hood(cls,Hood):
-        cls.objects.filter(hood=hood).delete()
+    
 
 class Profile(models.Model):
     avatar = models.ImageField(upload_to='avatars/')
@@ -32,7 +33,7 @@ class Profile(models.Model):
 class notifications(models.Model):
     title = models.CharField(max_length=100)
     notification = HTMLField()
-    priority = models.CharField(max_length=15,choices=Priority,default="Informational")
+    # priority = models.CharField(max_length=15,choices=Priority,default="Informational")
     author = models.ForeignKey(User,on_delete=models.CASCADE)
     hood = models.ForeignKey(Hood,on_delete=models.CASCADE)
     post_date = models.DateTimeField(auto_now_add=True)
