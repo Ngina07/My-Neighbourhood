@@ -4,45 +4,49 @@
 
 {% block content %}
 
-<div class="col-md-4 form-section">
+<body style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/media/businesslogo/bg1.jpg) no-repeat center center fixed;">
+    <div class="col-md-4 form-section"></div>
 
-    {% if form.errors %}
-    <p>Password or Username is incorrect</p>
-    {% endif %}
+    <div class="col-md-4 form-section">
 
-    <div class="panel panel-default" style="margin-top:280px;">
+        {% if form.errors %}
+        <p>Password or Username is incorrect</p>
+        {% endif %}
 
-        <div class="panel-body">
+        <div class="panel panel-default" style="margin-top:280px;">
 
-            <div class="text-center">
-                <form action="/accounts/login/" method="post">
+            <div class="panel-body">
 
-                    {% csrf_token%}
-                    {% bootstrap_form form %}
+                <div class="text-center">
+                    <form action="/accounts/login/" method="post">
 
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary login-button" value="Log in">
+                        {% csrf_token%}
+                        {% bootstrap_form form %}
 
-                    </div>
-                    <input type="hidden" name="next" value="/">
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary login-button" value="Log in">
 
-                </form>
+                        </div>
+                        <input type="hidden" name="next" value="/">
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body text-center">
+                <p> Don't have an account? <span><a class="" href="/accounts/register">Sign Up</a></span></p>
             </div>
         </div>
 
     </div>
-
-    <div class="panel panel-default">
-        <div class="panel-body text-center">
-            <p> Don't have an account? <span><a class="" href="/accounts/register">Sign Up</a></span></p>
-        </div>
+    <!-- Empty div -->
+    <div class="col-md-4"></div>
     </div>
 
-</div>
-<!-- Empty div -->
-<div class="col-md-4"></div>
-</div>
-
-</div>
+    </div>
+</body>
 
 {% endblock %}
