@@ -33,7 +33,7 @@ My-neighbourhood is an app that allows users to enter their neighbourhood and se
 
 
 ## Known bugs
-There are no known bugs
+There are no known bugs. However, you need to click on business and health services name for modal to pop up
 
 ## Support and contact details
 In the event any issue arises while using the webpage feel free to contact me through my email address, phillis.njoroge@strathmore.edu. Any and all contributions to the code are highly encouraged and appreciated.
