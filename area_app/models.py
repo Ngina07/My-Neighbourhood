@@ -13,6 +13,13 @@ class Hood(models.Model):
     def __str__(self):
         return self.hood
 
+    def save_neighbourhood(self):
+        self.save()
+
+    @classmethod
+    def delete_neighbourhood(cls,neighbourhood):
+        cls.objects.filter(neighbourhood=neighbourhood).delete()
+
     
 
 class Profile(models.Model):
@@ -70,3 +77,10 @@ class Health(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save_health(self):
+        self.save()
+
+    @classmethod
+    def delete_health(cls,Health):
+        cls.objects.filter(Health=Health).delete()

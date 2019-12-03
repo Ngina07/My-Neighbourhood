@@ -4,7 +4,7 @@
 #### By : Phillis Ngina Njoroge
 
 ### Description
-My-neighbourhood is an app that allows users to enter their neighbourhood and see health services, authorities and neighbourhood notifications.Access live link [here]https://myhood101.herokuapp.com/)
+My-neighbourhood is an app that allows users to enter their neighbourhood and see health services, authorities and neighbourhood notifications.Access live link [here](https://myhood101.herokuapp.com/)
 
 ## BDD
 
